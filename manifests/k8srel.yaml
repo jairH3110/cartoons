@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {model_namerel}-release
+  name: {model_name}-release
 spec:
   selector:
     matchLabels:
