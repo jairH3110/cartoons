@@ -58,19 +58,19 @@ jobs:
         run: docker push ${{secrets.DOCKER_USER}}/${{secrets.MODEL_NAMEREL}}:${{github.sha}}
       
       - name: update docker user in k8 
-        run: sed -i 's/{docker_user}/${{secrets.DOCKER_USER}}/g' manifests/k8srel.yaml
+        run: sed -i 's/{docker_user}/${{secrets.DOCKER_USER}}/g' manifests/k8s.yaml
 
       - name: update model name in k8 
-        run: sed -i 's/{model_name}/${{secrets.MODEL_NAMEREL}}/g' manifests/k8srel.yaml
+        run: sed -i 's/{model_name}/${{secrets.MODEL_NAMEREL}}/g' manifests/k8s.yaml
 
       - name: update _ by - 
-        run: sed -i 's/_/-/g' manifests/k8srel.yaml
+        run: sed -i 's/_/-/g' manifests/k8s.yaml
 
       - name: update sha in k8
-        run: sed -i 's/{github.sha}/${{github.sha}}/g' manifests/k8srel.yaml
+        run: sed -i 's/{github.sha}/${{github.sha}}/g' manifests/k8s.yaml
 
       - name: ls -la 
-        run: cat manifests/k8srel.yaml
+        run: cat manifests/k8s.yaml
       - uses: okteto/context@2.7.0
         with:
           token: ${{secrets.OKTETO_TOKEN }}
@@ -81,5 +81,5 @@ jobs:
           KUBECONFIG: ${{ steps.namespace.outputs.kubeconfig }}
         with:
           namespace: ${{secrets.OKTETO_NAMESPACE }}
-          manifest: manifests/k8srel.yaml
+          manifest: manifests/k8s.yaml
           tag: ${{ secrets.DOCKER_USERNAME }}/${{secrets.MODEL_NAMEREL}}:${{github.sha}}
