@@ -2,7 +2,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {model_name}-deployment
+  name: {model_name}-releases
+        env:
+          KUBECONFIG: ${{ steps.namespace.outputs.kubeconfig }}
+        with:
+          namespace: ${{secrets.OKTETO_NAMESPACE }}
+          manifest: manifests/k8s.yaml
+          tag: ${{ secrets.DOCKER_USERNAME }}/${{secrets.MODEL_NAME}}:${{github.sha}}
 spec:
   selector:
     matchLabels:
