@@ -7,6 +7,16 @@
   pointer-events: none;
 }
 
+#contenedor{
+  background-position: 25%;
+  background-size: cover;
+  display: table;
+  height: 100%;
+  width: 100%;
+  background-image: url("./img/portal.png");
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
