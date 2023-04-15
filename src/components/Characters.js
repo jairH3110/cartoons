@@ -1,4 +1,3 @@
-import Portal from "../img/portal.png"
 import '../App.css'
 export default function Characters(props){
     const {characters ,setCharacters} = props
