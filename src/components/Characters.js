@@ -13,7 +13,7 @@ export default function Characters(props){
         <div className="container-characters"  style={{background:"black"}} >
              {characters.map((character, index) => (
                 <div className="character-container" id="contenedor" key={index}> <h1 style= {{color:"#a47148"}}  >{character.name} </h1> 
-                <div>  <img src={character.image} align="center"></img> <br></br>
+                <div>  <img src={character.image} ></img> <br></br>
                 
                 <i style={{color:"gray"}}> origen: {character.origin.name}</i>  <br></br>
                 <i style={{color:"black"}}> episodios de aparicion: {character.episode.length}</i>  <br></br>
