@@ -19,7 +19,7 @@ console.log(characterApi)
   return (
     <div className="App" >
       <header className="App-header" style={{background:"#90a955"}}> 
-        <h1 className='title'>Rick and morty</h1>
+        <h1 className='title'>jose jair lopez herrera: s18003182</h1>
         {characters ?(
         <Characters  characters={characters} setCharacters={setCharacters}/>
         ) : (
